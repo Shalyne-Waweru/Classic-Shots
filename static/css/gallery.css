@@ -1,0 +1,56 @@
+@import url('https://fonts.googleapis.com/css2?family=Charm&display=swap');
+
+/* Navbar Section */
+.navbar {
+  height: 110px;
+  background-color: transparent;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0px 150px;
+  background-color: #0D1B1E;
+}
+
+.logo{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.logo img {
+  width: 50px;
+  height: 50px;
+  border-radius: 10px;
+}
+
+.logo p {
+  font-size: 15px;
+  font-weight: bold;
+  color: white;
+  margin-top: 5px;
+}
+
+.navbar ul {
+  list-style: none;
+  margin-left: 80px;
+}
+
+.navbar ul li{
+  display: inline-block;
+}
+
+.navbar ul li a {
+  text-decoration: none;
+  color: white;
+  margin-left: 20px;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.active, .link:hover {
+  border: 2px solid #C4C4C4;
+  border-radius: 5px;
+  padding: 5px;
+}

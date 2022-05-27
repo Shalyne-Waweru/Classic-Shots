@@ -2,7 +2,6 @@
 
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,21 +9,16 @@
 
   <!-- Stylesheets -->
   <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.css' %}">
-  <link rel="stylesheet" href="{% static 'css/index.css' %}">
+  <link rel="stylesheet" href="{% static 'css/gallery.css' %}">
 
-  <title>Landing Page</title>
+  <title>Gallery Page</title>
 </head>
-
 <body>
-  <img src="{% static 'images/h-background.png' %}" alt="Background Image">
-
-  <div class="intro">
-    <h1><span class="charm">Welcome To </span></h1>
-    <h1><strong>CLASSIC SHOTS</strong></h1>
-    <p>Home of Quality and Exquisite Photography!</p>
-    <hr>
-    <button class="exploreBtn"><a href="{% url 'galleryPage' %}">EXPLORE</a></button>
-  </div>
+  {% include 'navbar.html' %}
+    
+  {% block content %} 
+    
+  {% endblock %}
 
   <!-- Optional JavaScript -->
   <!-- jQuery first, then Popper.js, then Bootstrap JS -->
@@ -32,5 +26,4 @@
   <script src="{% static 'js/popper.min.js' %} "></script>
   <script src="{% static 'js/bootstrap.min.js' %} "></script>
 </body>
-
 </html>

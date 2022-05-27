@@ -6,3 +6,9 @@ def home(request):
   View function that returns the home page and its data
   '''
   return render(request, 'index.html', {})
+
+def gallery(request):
+  '''
+  View function that returns the gallery page and its data
+  '''
+  return render(request, 'gallery.html', {})

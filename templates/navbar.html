@@ -1,0 +1,15 @@
+{% load static %}
+
+<header class="navbar">
+  <div class="logo">
+    <img src="{%static 'images/logo_4.png' %}" alt="Logo" />
+    <p>CLASSIC SHOTS</p>
+  </div>
+
+  <ul id="nav-btns">
+    <li><a class="link active" href="{% url 'homePage' %}">HOME</a></li>
+    <li><a class="link" href="#">LOCATION</a></li>
+    <li><a class="link" href="{% url 'galleryPage' %}">GALLERY</a></li>
+  </ul>
+
+</header>
