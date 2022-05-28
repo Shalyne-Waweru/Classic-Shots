@@ -37,3 +37,25 @@ class Image(models.Model):
 
   def __str__(self):
         return self.image
+
+  def save_image(self):
+        self.save()
+
+  def delete_image(self):
+        self.delete()
+
+  @classmethod
+  def get_image_by_id(cls,id):
+      image = cls.objects.filter(id = id)
+      return image
+
+  @classmethod
+  def search_images_by_category(cls,search_term):
+      #The __icontains query filter will check if any word in the category field of our images matches the search_term
+      images = cls.objects.filter(category__categoryName__icontains=search_term)
+      return images
+
+  @classmethod
+  def filter_images_by_location(cls,location):
+      images = cls.objects.filter(location=location)
+      return images
