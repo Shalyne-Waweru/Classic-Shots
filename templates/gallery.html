@@ -16,9 +16,63 @@
     </div>
   </div>
 
-  
-
 </div>
 
+<div class="images-section">
+  <div class="section-header">
+    <hr class="horizontal">
+    <h3>Gallery</h3>
+    <hr class="horizontal">
+  </div>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4">
+        <img id="gallery-img" src="{% static 'images/sample-img.jpg' %}" alt="Background Image">
+
+        <!-- The Modal -->
+        <div id="myModal" class="modal">
+          <span class="close">&times;</span>
+          <img class="modal-content" id="img01">
+          
+          <div id="model-img-info">
+            <h2>Image Title</h2>
+            <p>Lorem ipsum dolor sit amet. 33 impedit dolorem aut enim molestiae et sint nobis est sunt quis id ipsum fugit. Ut quibusdam quae!</p>
+            <div class="image-actions">
+              <div class="location">
+                <i class="fas fa-map-marker-alt"></i>
+                <p>Location</p>
+              </div>
+
+              <div class="category">
+                <i class="fas fa-folder-open"></i>
+                <p>Category</p>
+              </div>
+
+              <div class="share">
+                <a href="#"><i class="fas fa-share-square"></i></a>
+                <a href="#"><p>Share</p></a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <img src="{% static 'images/sample-img-2.jpg' %}" alt="Background Image">
+      </div>
+
+      <div class="col-md-4">
+        <img src="{% static 'images/sample-img.jpg' %}" alt="Background Image">
+      </div>
+
+      <div class="col-md-4">
+        <img src="{% static 'images/sample-img-2.jpg' %}" alt="Background Image">
+      </div>
+
+    </div>
+  </div>
+</div>
 
 {% endblock %}
