@@ -27,49 +27,46 @@
 
   <div class="container">
     <div class="row">
-      <div class="col-md-4">
-        <img id="gallery-img" src="{% static 'images/sample-img.jpg' %}" alt="Background Image">
 
-        <!-- The Modal -->
-        <div id="myModal" class="modal">
-          <span class="close">&times;</span>
-          <img class="modal-content" id="img01">
-          
-          <div id="model-img-info">
-            <h2>Image Title</h2>
-            <p>Lorem ipsum dolor sit amet. 33 impedit dolorem aut enim molestiae et sint nobis est sunt quis id ipsum fugit. Ut quibusdam quae!</p>
-            <div class="image-actions">
-              <div class="location">
-                <i class="fas fa-map-marker-alt"></i>
-                <p>Location</p>
-              </div>
+      {% for image_item in images %}
+        <div class="col-md-4">
+          <img id="gallery-img" src="{{image_item.image.url}}" alt="Background Image">
 
-              <div class="category">
-                <i class="fas fa-folder-open"></i>
-                <p>Category</p>
-              </div>
+          <!-- The Modal -->
+          <div id="myModal" class="modal">
+            <span class="close">&times;</span>
+            <img class="modal-content" id="img01">
 
-              <div class="share">
-                <a href="#"><i class="fas fa-share-square"></i></a>
-                <a href="#"><p>Share</p></a>
+            <div id="model-img-info">
+              <h2>{{ image_item.title }}</h2>
+              <p>{{ image_item.description }}</p>
+              <div class="image-actions">
+                <div class="location">
+                  <i class="fas fa-map-marker-alt"></i>
+                  <p>{{ image_item.location }}</p>
+                </div>
+
+                <div class="category">
+                  <i class="fas fa-folder-open"></i>
+                  <p>{{ image_item.description }}</p>
+                </div>
+
+                <div class="share">
+                  <a href="#"><i class="fas fa-share-square"></i></a>
+                  <a href="#">
+                    <p>Share</p>
+                  </a>
+                </div>
               </div>
             </div>
+
           </div>
-
         </div>
-      </div>
-
-      <div class="col-md-4">
-        <img src="{% static 'images/sample-img-2.jpg' %}" alt="Background Image">
-      </div>
-
-      <div class="col-md-4">
-        <img src="{% static 'images/sample-img.jpg' %}" alt="Background Image">
-      </div>
-
-      <div class="col-md-4">
-        <img src="{% static 'images/sample-img-2.jpg' %}" alt="Background Image">
-      </div>
+      {% empty %}
+        <div class="row">
+          <h2 class="text-center">There Are No Images Yet!</h2>
+        </div>
+      {% endfor %}
 
     </div>
   </div>

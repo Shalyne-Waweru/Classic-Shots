@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.http  import HttpResponse
+from .models import *
 
 def home(request):
   '''
@@ -11,4 +12,5 @@ def gallery(request):
   '''
   View function that returns the gallery page and its data
   '''
-  return render(request, 'gallery.html', {})
+  images = Image.all_images()
+  return render(request, 'gallery.html', {'images' : images} )
