@@ -36,10 +36,13 @@ class Image(models.Model):
   date = models.DateTimeField(auto_now_add=True)
 
   def __str__(self):
-        return self.image
+        return self.title
 
   def save_image(self):
         self.save()
+
+  def all_images(self):
+        return Image.objects.all()
 
   def delete_image(self):
         self.delete()
