@@ -29,43 +29,56 @@
     <div class="row">
 
       {% for image_item in images %}
-        <div class="col-md-4">
-          <img id="gallery-img" src="{{image_item.image.url}}" alt="Background Image">
+      <div class="col-md-4">
+        <img id="gallery-img" src="{{image_item.image.url}}" alt="Background Image">
 
-          <!-- The Modal -->
-          <div id="myModal" class="modal">
-            <span class="close">&times;</span>
-            <img class="modal-content" id="img01">
+        <!-- The Modal -->
+        <div id="myModal" class="modal">
+          <span class="close">&times;</span>
+          <img class="modal-content" id="img01">
 
-            <div id="model-img-info">
-              <h2>{{ image_item.title }}</h2>
-              <p>{{ image_item.description }}</p>
-              <div class="image-actions">
-                <div class="location">
-                  <i class="fas fa-map-marker-alt"></i>
-                  <p>{{ image_item.location }}</p>
-                </div>
-
-                <div class="category">
-                  <i class="fas fa-folder-open"></i>
-                  <p>{{ image_item.description }}</p>
-                </div>
-
-                <div class="share">
-                  <a href="#"><i class="fas fa-share-square"></i></a>
-                  <a href="#">
-                    <p>Share</p>
-                  </a>
-                </div>
+          <div id="model-img-info">
+            <h2>{{ image_item.title }}</h2>
+            <p>{{ image_item.description }}</p>
+            <div class="image-actions">
+              <div class="location">
+                <i class="fas fa-map-marker-alt"></i>
+                <p>{{ image_item.location }}</p>
               </div>
-            </div>
 
+              <div class="category">
+                <i class="fas fa-folder-open"></i>
+                <p>{{ image_item.category }}</p>
+              </div>
+              
+              <div class="share">
+                <button class="shareBtn" value="{{image_item.image.url}}" onclick="copyLink(this.value)">
+                  <i class="fas fa-share-square"></i>
+                </button>
+                <span class="tooltiptext" id="myTooltip">Copy to Clipboard</span>
+                <p>Share</p>
+              </div>
+
+            </div>
           </div>
+
         </div>
+      </div>
+      <script>
+        function copyLink(value) {
+          function handler(event) {
+            event.clipboardData.setData('text/plain', value);
+            event.preventDefault();
+            document.removeEventListener('copy', handler, true);
+          }
+          document.addEventListener('copy', handler, true);
+          document.execCommand('copy');
+        }
+      </script>
       {% empty %}
-        <div class="row">
-          <h2 class="text-center">There Are No Images Yet!</h2>
-        </div>
+      <div class="row">
+        <h2 class="text-center">There Are No Images Yet!</h2>
+      </div>
       {% endfor %}
 
     </div>

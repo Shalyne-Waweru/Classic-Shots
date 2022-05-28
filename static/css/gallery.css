@@ -142,8 +142,8 @@ button[type="submit"]:hover {
 
 button[type="submit"]:focus,
 input[type="search"]:focus {
-  box-shadow: 0 0 3px 0 #1183d6;
-  border-color: #1183d6;
+  box-shadow: 0 0 3px 0 #0979A5;
+  border-color: #0979A5;
   outline: none;
 }
 
@@ -256,6 +256,13 @@ input[type="search"]:focus {
   margin-top: 20px;
 }
 
+.share {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
 .share button {
   background-color: black;
   border: 0px;
@@ -265,6 +272,16 @@ input[type="search"]:focus {
 .fas {
   color: white;
   font-size: 20px
+}
+
+.tooltiptext {
+  color: white;
+  background-color: #555;
+  padding: 5px;
+  border-radius: 5px;
+  margin-top: 20px;
+  position:absolute;
+  z-index: 1;
 }
 
 /* Add Animation */
