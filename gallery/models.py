@@ -21,6 +21,10 @@ class Location(models.Model):
     def save_location(self):
         self.save()
 
+    @classmethod
+    def all_locations(cls):
+        return cls.objects.all()
+
     def delete_location(self):
         self.delete()
 

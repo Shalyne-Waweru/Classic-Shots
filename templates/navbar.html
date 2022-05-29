@@ -7,9 +7,30 @@
   </div>
 
   <ul id="nav-btns">
-    <li><a class="link active" href="{% url 'homePage' %}">HOME</a></li>
+    <li class="nav-item">
+      <a class="nav-link active" href="{% url 'homePage' %}">HOME <span class="sr-only">(current)</span></a>
+    </li>
+
+    <li class="nav-item dropdown">
+
+      <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        LOCATION
+      </a>
+
+      <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+        {% for loc_item in locations %}
+        <a class="dropdown-item" href="/gallery/?location={{loc_item.id}}">{{loc_item.locationName}}</a>
+        {%endfor%}
+      </div>
+    </li>
+
+    <li class="nav-item">
+      <a class="nav-link" href="{% url 'galleryPage' %}">GALLERY <span class="sr-only"></span></a>
+    </li>
+
+    <!-- <li><a class="link active" href="{% url 'homePage' %}">HOME</a></li>
     <li><a class="link" href="#">LOCATION</a></li>
-    <li><a class="link" href="{% url 'galleryPage' %}">GALLERY</a></li>
+    <li><a class="link" href="{% url 'galleryPage' %}">GALLERY</a></li> -->
   </ul>
 
 </header>
