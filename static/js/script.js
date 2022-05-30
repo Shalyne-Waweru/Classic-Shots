@@ -13,5 +13,9 @@ $(document).ready(function(){
 
   });
 
+  $(".gallery-img").click(function(){
+    $(".fetch-response").hide();
+  })
+
 });
 

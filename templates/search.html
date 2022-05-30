@@ -1,25 +1,102 @@
 {%extends 'base.html'%} 
+{% load static %}
+
 {% block content %}
-<div class="container">
+<div class="gallery-intro">
+  <img src="{% static 'images/search-background.png' %}" alt="Background Image">
 
-  <div class="row">
-    {% if articles%}
-      <h2>Found {{ articles|length }} of searched term {{message}}</h2>
-    {% else %}
-      <h2> Found 0 articles for the search term {{message}}</h2>
-    {% endif %}
+  <div class="container">
+    <h1><strong>Classic Shots</strong></h1>
+    <p>Get freely-usable high-resolution images <span class="blue-txt">anywhere,anytime</span></p>
 
+    <!-- Search Section -->
+    <div class="search-section">
+      <form class="navbar-form" role="search" action="{% url 'search_results' %}">
+        <input type="search" id="category" placeholder="Search image by category" name="category" required>
+        <button class="searchBtn" type="submit"><i class="fas fa-search"></i></button>
+      </form>
+    </div>
   </div>
 
-  <div class="row">
+</div>
 
-  {% if articles %}
-    {% for article in articles %}
-      <div class="col-sm-6 col-md-3">
-          <h1>{{article.title}}</h1>
+<div class="images-section">
+  <div class="section-header">
+    <hr class="horizontal">
+    <h3>Gallery</h3>
+    <hr class="horizontal">
+  </div>
+
+  <div class="fetch-response">
+    {% if searched_images%}
+      <h5>Found {{ searched_images|length }} match(es)</h5>
+    {% else %}
+      <h5> Found 0 matches for the search term {{message}}</h5>
+    {% endif %}
+  </div>
+
+  <div class="container">
+    <div class="row">
+
+      {% if searched_images %}
+
+      {% for search_item in searched_images %}
+      <div class="col-md-4" data-toggle="modal" data-target="#{{search_item.id}}">
+        <img class="gallery-img" src="{{search_item.image.url}}" alt="Gallery Image">
       </div>
-    {% endfor %}
-  {% endif %}
+
+      <!-- The Modal -->
+      <div class="main-modal">
+        <div class="modal" id="{{search_item.id}}" tabindex="-1" role="dialog"
+          aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+          <span class="close" data-dismiss="modal">&times;</span>
+          <img class="modal-content" id="img01" src="{{search_item.image.url}}" alt="Gallery Image">
+
+          <div id="model-img-info">
+            <h2 id="modal-caption">{{ search_item.title }}</h2>
+            <p>{{ search_item.description }}</p>
+            <div class="image-actions">
+              <div class="location">
+                <i class="fas fa-map-marker-alt"></i>
+                <p>{{ search_item.location }}</p>
+              </div>
+
+              <div class="category">
+                <i class="fas fa-folder-open"></i>
+                <p>{{ search_item.category }}</p>
+              </div>
+
+              <div class="share">
+                <button class="shareBtn" value="{{search_item.image.url}}" onclick="copyLink(this.value)">
+                  <i class="fas fa-share-square"></i>
+                </button>
+                <span class="tooltiptext" id="myTooltip">Copy to Clipboard</span>
+                <p>Share</p>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <script>
+        function copyLink(value) {
+          function handler(event) {
+            event.clipboardData.setData('text/plain', value);
+            event.preventDefault();
+            document.removeEventListener('copy', handler, true);
+          }
+          document.addEventListener('copy', handler, true);
+          document.execCommand('copy');
+        }
+      </script>
+
+      {% endfor %}
+      {% endif %}
+    </div>
   </div>
 </div>
+
 {% endblock %}
+
