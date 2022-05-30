@@ -17,13 +17,14 @@ from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path,re_path
-from gallery.views import home, gallery, location
+from gallery.views import home, gallery, location, search_results
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', home, name='homePage'),
     path('gallery/', gallery, name='galleryPage'),
     re_path('^location/(?P<image_location>\w+)/', location, name='locationPage'),
+    re_path('^search/', search_results, name='search_results'),
 ]
 if settings.DEBUG:
     urlpatterns+= static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
