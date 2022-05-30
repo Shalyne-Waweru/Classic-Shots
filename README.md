@@ -36,7 +36,7 @@ A user will be able to:
 
 To start using this project use the following commands:
 
-- git clone `https://github.com/Shalyne-Waweru/Classic-Shots.git
+- git clone `https://github.com/Shalyne-Waweru/Classic-Shots.git`
 - `cd Classic-Shots`
 - run `python3.8 manage.py runserver` to serve the application
 
