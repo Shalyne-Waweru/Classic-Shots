@@ -1,0 +1,358 @@
+@import url('https://fonts.googleapis.com/css2?family=Charm&display=swap');
+
+body {
+  background-color: #0D1B1E;
+}
+
+/* Navbar Section */
+.navbar {
+  height: 110px;
+  background-color: transparent;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0px 150px;
+  background-color: #0D1B1E;
+}
+
+.logo {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.logo img {
+  width: 50px;
+  height: 50px;
+  border-radius: 10px;
+}
+
+.logo p {
+  font-size: 15px;
+  font-weight: bold;
+  color: white;
+  margin-top: 5px;
+}
+
+.navbar ul {
+  list-style: none;
+  margin-left: 80px;
+}
+
+.navbar ul li {
+  display: inline-block;
+}
+
+.navbar ul li a {
+  text-decoration: none;
+  color: white;
+  margin-left: 20px;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.active,
+.link:hover {
+  border: 2px solid #C4C4C4;
+  border-radius: 5px;
+  padding: 5px;
+}
+
+.dropdown-menu {
+  background: #0D1B1E;
+  margin-left: 30px;
+}
+
+.dropdown-item {
+  width: 80%;
+  padding: 0px;
+  margin-bottom: 10px;
+  background-color: #0D1B1E;
+}
+
+.dropdown-item:hover {
+  color: #BCC9DB;
+  padding: 0px;
+  background-color: #0D1B1E;
+}
+
+/* Gallery Intro Section */
+.gallery-intro img {
+  position: absolute;
+  width: 100%;
+  height: 50%;
+  z-index: 1;
+}
+
+.fetch-response {
+  position: relative;
+  z-index: 2;
+  color: white;
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.gallery-intro .container {
+  position: relative;
+  z-index: 2;
+  color: white;
+  padding-top: 120px;
+  padding-left: 20px;
+  padding-right: 20px;
+  top: 20%;
+}
+
+.gallery-intro .container h1 {
+  font-size: 45px;
+}
+
+.gallery-intro .container p {
+  font-size: 23px;
+  line-height: 1.6;
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+.blue-txt {
+  color: #0979A5;
+}
+
+/* Search Form */
+.search-section {
+  color: black;
+  display: flex;
+  padding: 2px;
+  border: none;
+  border-radius: 10px;
+  width: 60%;
+  height: 50px;
+  background-color: #BCC9DB;
+  margin-top: 30px;
+}
+
+.search-items{
+  margin-top: 15px;
+  margin-left: 20px;
+}
+
+input[type="search"] {
+  background: transparent;
+  margin: 0;
+  padding: 7px 8px;
+  font-size: 16px;
+  color: inherit;
+  width: 500px;
+  border: 1px solid transparent;
+  border-radius: inherit;
+}
+
+input[type="search"]::placeholder {
+  text-indent: 10px;
+  color: rgb(93, 91, 91);
+}
+
+.searchBtn {
+  border: none;
+  background-color: #BCC9DB;
+  cursor: pointer;
+  margin-left: 70px;
+  margin-top: 10px;
+}
+
+.searchBtn .fas {
+  color: #555;
+}
+
+button[type="submit"]:hover {
+  opacity: 1;
+}
+
+button[type="submit"]:focus,
+input[type="search"]:focus {
+  box-shadow: 0 0 3px 0 #0979A5;
+  border-color: #0979A5;
+  outline: none;
+}
+
+/* Images Section */
+.images-section {
+  position: relative;
+  z-index: 2;
+}
+
+.section-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 230px;
+}
+
+.section-header hr {
+  width: 15px;
+  margin: 15px;
+  height: 3px;
+  border: none;
+  background: white;
+}
+
+.section-header h3 {
+  color: white;
+  font-family: 'Charm', cursive;
+  font-size: 25px;
+  letter-spacing: 1.0px;
+  font-weight: bold;
+}
+
+.images-section .container {
+  margin-top: 30px;
+  margin-bottom: 80px;
+  height: 100%;
+  max-width: 70% !important;
+}
+
+.images-section .row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.images-section .col-md-4 {
+  margin-bottom: 50px;
+}
+
+.images-section .col-md-4 img {
+  width: 100%;
+  height: 300px;
+  border-radius: 5px;
+  border: 10px solid white;
+  cursor: zoom-in;
+  transition: 0.3s;
+}
+
+.images-section .col-md-4 img:hover {
+  opacity: 0.8;
+}
+
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
+}
+
+/* Modal Content (image) */
+.modal-content {
+  margin: auto;
+  display: block;
+  width: 90%;
+  max-width: 90%;
+  height: 70%;
+  max-height: 70%;
+  border: none;
+}
+
+/* Caption of Modal Image */
+#model-img-info {
+  margin: auto;
+  display: block;
+  width: 80%;
+  max-width: 700px;
+  text-align: center;
+  color: #ccc;
+  padding: 10px 0;
+  height: 150px;
+}
+
+#model-img-info h2 {
+  margin-top: 30px;
+  margin-bottom: 20px;
+}
+
+#model-img-info .image-actions {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.share {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.share button {
+  background-color: black;
+  border: 0px;
+  cursor: pointer;
+}
+
+.fas {
+  color: white;
+  font-size: 20px
+}
+
+.tooltiptext {
+  color: white;
+  background-color: #555;
+  padding: 5px;
+  border-radius: 5px;
+  margin-top: 20px;
+  position:absolute;
+  z-index: 1;
+}
+
+/* Add Animation */
+.modal-content, #model-img-info {  
+  -webkit-animation-name: zoom;
+  -webkit-animation-duration: 0.6s;
+  animation-name: zoom;
+  animation-duration: 0.6s;
+}
+
+@-webkit-keyframes zoom {
+  from {-webkit-transform:scale(0)} 
+  to {-webkit-transform:scale(1)}
+}
+
+@keyframes zoom {
+  from {transform:scale(0)} 
+  to {transform:scale(1)}
+}
+
+/* The Close Button */
+.close {
+  position: absolute;
+  top: 15px;
+  right: 35px;
+  color: #f1f1f1;
+  font-size: 40px;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.close:hover,
+.close:focus {
+  color: #bbb;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* 100% Image Width on Smaller Screens */
+@media only screen and (max-width: 700px){
+  .modal-content {
+    width: 100%;
+  }
+}
