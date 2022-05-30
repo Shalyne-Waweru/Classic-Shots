@@ -1,0 +1,106 @@
+{% extends 'base.html' %}
+{%load static%}
+
+{% block content %}
+<div class="gallery-intro">
+  <img src="{% static 'images/search-background.png' %}" alt="Background Image">
+
+  <div class="container">
+    <h1><strong>Classic Shots</strong></h1>
+    <p>Get freely-usable high-resolution images <span class="blue-txt">anywhere,anytime</span></p>
+
+    <!-- Search Section -->
+    <div class="search-section">
+      <input type="search" id="category" placeholder="Search image by category" required>
+      <button type="button"><a href="#">Search</a></button>
+    </div>
+  </div>
+
+</div>
+
+<div class="images-section">
+  <div class="section-header">
+    <hr class="horizontal">
+    <h3>Gallery</h3>
+    <hr class="horizontal">
+  </div>
+
+  <div class="fetch-response">
+    {% if images %}
+    <h5>Found {{images|length }} match(es)</h3>
+    {% else %}
+    <h2>Found 0 images</h2>
+    {% endif %}
+  </div>
+
+  <div class="container">
+    <div class="row">
+
+      {% if images %}
+
+      {% for image_item in images %}
+      <div class="col-md-4" data-toggle="modal" data-target="#{{image_item.id}}">
+        <img class="gallery-img" src="{{image_item.image.url}}" alt="Gallery Image">
+      </div>
+
+      <!-- The Modal -->
+      <div class="main-modal">
+        <div id="my-Modal" class="modal" id="{{image_item.id}}" tabindex="-1" role="dialog"
+          aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+          <span class="close">&times;</span>
+          <img class="modal-content" id="img01" src="{{image_item.image.url}}" alt="Gallery Image">
+
+          <div id="model-img-info">
+            <h2 id="modal-caption">{{ image_item.title }}</h2>
+            <p>{{ image_item.description }}</p>
+            <div class="image-actions">
+              <div class="location">
+                <i class="fas fa-map-marker-alt"></i>
+                <p>{{ image_item.location }}</p>
+              </div>
+
+              <div class="category">
+                <i class="fas fa-folder-open"></i>
+                <p>{{ image_item.category }}</p>
+              </div>
+
+              <div class="share">
+                <button class="shareBtn" value="{{image_item.image.url}}" onclick="copyLink(this.value)">
+                  <i class="fas fa-share-square"></i>
+                </button>
+                <span class="tooltiptext" id="myTooltip">Copy to Clipboard</span>
+                <p>Share</p>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <script>
+        function copyLink(value) {
+          function handler(event) {
+            event.clipboardData.setData('text/plain', value);
+            event.preventDefault();
+            document.removeEventListener('copy', handler, true);
+          }
+          document.addEventListener('copy', handler, true);
+          document.execCommand('copy');
+        }
+      </script>
+
+      {% empty %}
+      <div class="row">
+        <h2 class="text-center">There Are No Images Yet!</h2>
+      </div>
+      {% endfor %}
+      {% endif %}
+    </div>
+  </div>
+</div>
+
+{% endblock %}
+</body>
+
+</html>

@@ -15,8 +15,11 @@ def gallery(request):
   images = Image.all_images()
   locations = Location.all_locations()
 
-  if 'locations' in request.GET and request.GET['locations']:
-        locationName = request.GET.get('locations')
-        images = Image.filter_images_by_location(locationName)
-
   return render(request, 'gallery.html', {'images' : images, 'locations' : locations})
+
+def location(request,image_location):
+  '''
+  View function that returns the images based on their location
+  '''
+  images = Image.filter_images_by_location(image_location)
+  return render(request, 'location.html', {'images':images})

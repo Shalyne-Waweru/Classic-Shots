@@ -19,7 +19,7 @@
 
       <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
         {% for loc_item in locations %}
-        <a class="dropdown-item" href="/gallery/?location={{loc_item.id}}">{{loc_item.locationName}}</a>
+        <a class="dropdown-item" href="/location/{{loc_item.id}}">{{loc_item.locationName}}</a>
         {%endfor%}
       </div>
     </li>
