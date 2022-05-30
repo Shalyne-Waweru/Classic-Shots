@@ -79,13 +79,16 @@ WSGI_APPLICATION = 'ClassicShots.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'gallery',
-        'USER': 'shalyne',
-        'PASSWORD':'12345',
+        'NAME': 'd9rbqdl5d39198',
+        'USER': 'kozwmcweqggqls',
+        'PORT':5432,
+        'HOST':'ec2-3-211-221-185.compute-1.amazonaws.com',
+        'PASSWORD':'ab5f51c99660de05e422c35f96b4c5f553737a3c30064ab05b252450125dc2cd',
     }
 }
 
-
+# postgres://Username:Password@HostName:5432/DatabaseName
+# postgres://kozwmcweqggqls:ab5f51c99660de05e422c35f96b4c5f553737a3c30064ab05b252450125dc2cd@ec2-3-211-221-185.compute-1.amazonaws.com:5432/d9rbqdl5d39198
 # Password validation
 # https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators
 
