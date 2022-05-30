@@ -11,9 +11,13 @@
 
     <!-- Search Section -->
     <div class="search-section">
-      <input type="search" id="category" placeholder="Search image by category" required>
-      <button type="button"><a href="#">Search</a></button>
+      <form class="navbar-form" role="search" action="{% url 'search_results' %}">
+        <input type="search" id="category" placeholder="Search image by category" name="category" required>
+        <button class="searchBtn" type="submit"><i class="fas fa-search"></i></button>
+      </form>
     </div>
+
+    <h6 class="search-items">Trending: - Food, Nature, Travel</h6>
   </div>
 
 </div>
@@ -45,9 +49,9 @@
 
       <!-- The Modal -->
       <div class="main-modal">
-        <div id="my-Modal" class="modal" id="{{image_item.id}}" tabindex="-1" role="dialog"
+        <div class="modal" id="{{image_item.id}}" tabindex="-1" role="dialog"
           aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-          <span class="close">&times;</span>
+          <span class="close" data-dismiss="modal">&times;</span>
           <img class="modal-content" id="img01" src="{{image_item.image.url}}" alt="Gallery Image">
 
           <div id="model-img-info">

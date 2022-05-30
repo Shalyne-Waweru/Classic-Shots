@@ -133,6 +133,11 @@ body {
   margin-top: 30px;
 }
 
+.search-items{
+  margin-top: 15px;
+  margin-left: 20px;
+}
+
 input[type="search"] {
   background: transparent;
   margin: 0;
