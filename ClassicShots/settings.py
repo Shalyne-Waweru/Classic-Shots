@@ -11,6 +11,9 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 
 import os
+import cloudinary
+import cloudinary.uploader
+import cloudinary.api
 import django_heroku
 import dj_database_url
 from pathlib import Path
@@ -35,6 +38,7 @@ ALLOWED_HOSTS = ['0.0.0.0','classic-shots.herokuapp.com','127.0.0.1']
 
 INSTALLED_APPS = [
     'gallery',
+    'cloudinary',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -151,3 +155,10 @@ MEDIAFILES_DIRS = (
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+cloudinary.config(
+    cloudname='dwwdaas0u',
+    api_key='672713312823436',
+    api_secret='m9A_IUiok9WSzZ0cRcyuPpfCXsU',
+    secure = True
+)
